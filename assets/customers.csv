@@ -1,0 +1,4 @@
+CustomerID,CompanyNameFirstName,FirstName,LastName,BillingAddress,City,StateOrProvince,ZipCode,Email,CompanyWebsite,PhoneNumber,FaxNumber,ShipAddress,ShipCity,ShipStateOrProvince,ShipZipCode,ShipPhoneNumber
+1,"Contonso, Ltd",Adam,Barr,Irvine,Irvine,Irvine,1000,adam@email.com,example.com,1111,111,Irvine,Irvine,Irvine,1000,1111
+2,PT. Jatis Mobile,Ayu,Khairi,Jakarta,Jakarta,Jakarta,1000,ayu@rmail.com,"jatis,com",1111,111,Jakarta,Jakarta,jakarta,1000,1111
+3,PT. Jaya,Rama,Dhoni,Tangerang,Tangerang,Tangerang,1111,rama@email.com,jaya.com,111,11,Tangerang,Tangerang,Tangerang,1111,111
