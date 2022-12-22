@@ -94,19 +94,21 @@ SELECT * from customers c
 
 -- List of products which are ordered by "Contonso, Ltd" Company" Company.
 SELECT * from products p
-    JOIN order_detail od on p.product_id = od.product_id
+    JOIN order_details od on p.product_id = od.product_id
     JOIN orders o on od.order_id = o.order_id
-    JOIN customer c on o.customer_id = c.customer_id
-    WHERE c.company_name = 'Contonso, Ltd" Company';
+    JOIN customers c on o.customer_id = c.customer_id
+    WHERE c.company_name = 'Contonso, Ltd';
 
 -- List of transactions (orders) which has "UPS Ground" as shipping method.
 SELECT * from orders o
-    JOIN order_detail od on o.order_id = od.order_id
+    JOIN order_details od on o.order_id = od.order_id
     JOIN shipping_methods sm on o.shipping_method_id = sm.shipping_method_id
-    WHERE sm.shipping_method = 'UPS Ground'
+    WHERE sm.shipping_method = 'UPS Ground';
 
 -- List of total cost (including tax and freight charge) for every order sorted by ship date.
-SELECT (COALESCE(od.unit_price, 0) * COALESCE(od.quantity, 0) * (100 - COALESCE(od.discount,0)) + COALESCE(o.freight_charge,0)
+SELECT p.product_name, c.company_name, (COALESCE(od.unit_price, 0) * COALESCE(od.quantity, 0) * (100 - COALESCE(od.discount,0)) + COALESCE(o.freight_charge,0)
             + COALESCE(o.taxes,0)) as total_cost from orders o
-    JOIN order_detail od on o.order_id = od.order_id
-    ORDER BY o.ship_date desc
+    JOIN order_details od on o.order_id = od.order_id
+    JOIN products p on od.product_id = p.product_id
+    JOIN customers c on o.customer_id = c.customer_id
+    ORDER BY o.ship_date desc;

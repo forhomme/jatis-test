@@ -16,7 +16,7 @@ RUN apk add --no-cache tzdata ca-certificates libc6-compat
 WORKDIR /go/bin/jatis
 
 COPY --from=builder /go/bin/jatis /go/bin/jatis/jatis
-COPY --from=builder /go/src/jatis/.env /go/src/jatis/.env
+COPY --from=builder /go/src/jatis/.env.example /go/src/jatis/.env
 COPY --from=builder /go/src/jatis/assets /go/bin/jatis/assets
 
 ENTRYPOINT ["/go/bin/jatis/jatis", "-migrate"]

@@ -52,7 +52,7 @@ func main() {
 	var migrate bool
 	var seeding string
 	flag.BoolVar(&migrate, "migrate", true, "If migrate true")
-	flag.StringVar(&seeding, "seeding", "", "Seed data from csv file")
+	flag.StringVar(&seeding, "seeding", "all", "Seed data from csv file")
 	flag.Parse()
 
 	if migrate {
